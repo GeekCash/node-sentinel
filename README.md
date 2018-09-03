@@ -1,6 +1,5 @@
 # GeekCash Sentinel Node.js
 
-Sentinel is implemented as a Python application that binds to a local version 12 geekcashd instance on each GeekCash Masternode.
 
 This guide covers installing Sentinel onto an existing Masternode in Ubuntu 14.04 / 16.04.
 
