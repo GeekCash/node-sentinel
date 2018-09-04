@@ -40,7 +40,7 @@ geekcash-cli getinfo
 
 Clone the Sentinel repo and install Node packages.
 ```
-git clone https://github.com/geekcash/node-sentinel.git && cd sentinel
+git clone https://github.com/geekcash/node-sentinel.git && cd node-sentinel
 npm i
 ```
 
