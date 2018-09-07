@@ -3,7 +3,6 @@ var SmartRPC = require('smart-rpc'),
     config = require('./config');
 
 
-
 new CronJob('0 */5 * * * *', function () {
 
     for (let i = 0; i < config.coins.length; i++) {
