@@ -45,9 +45,10 @@ npm i
 ```
 
 ### 3. Config.js
-
+RPC User & Password in `.geekcash/geekcash.conf`
 
 ```js
+
 version:'1.2.1',
 coin: {
     id: 'GEEK',
