@@ -13,7 +13,7 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 ```js
-sudo apt-get install -y build-essential libzmq-dev
+sudo apt-get install -y build-essential libzmq3-dev
 
 ```
 Install PM2:
