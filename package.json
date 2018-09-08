@@ -1,6 +1,6 @@
 {
   "name": "node-sentinel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "babel-runtime":"*",
+    "babel-runtime": "^6.26.0",
     "cron": "^1.4.1",
     "smart-rpc": "^1.0.2"
   }

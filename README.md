@@ -89,7 +89,44 @@ coins: [
 
 ```
 
-### 4. Run app
+### 4. Allow RPC IP
+If you run sentinel for multiple masternodes, you need to configure rpcallowip to allow sentinel to connect to this MN.
+```
+rpcuser=root
+rpcpassword=pass
+rpcallowip=[IP of sentinel]
+rpcport=6888
+listen=1
+server=1
+daemon=1
+logtimestamps=1
+maxconnections=64
+txindex=1
+masternode=1
+externalip=8.8.8.8:6889
+masternodeprivkey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+Ex: your sentinel run at IP: 9.9.9.9, others MN config
+
+```
+rpcuser=root
+rpcpassword=pass
+rpcallowip=9.9.9.9
+rpcport=6888
+listen=1
+server=1
+daemon=1
+logtimestamps=1
+maxconnections=64
+txindex=1
+masternode=1
+externalip=8.8.8.8:6889
+masternodeprivkey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+
+### 5. Run app
 ```
 pm2 start ./app.js --name sentinel
 ```

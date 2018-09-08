@@ -11,5 +11,6 @@ build
 obj/*
 *.bak
 **/env/production.js
+config.js
 note.txt
 package-lock.json
