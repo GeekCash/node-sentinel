@@ -41,11 +41,94 @@ geekcash-cli getinfo
 Clone the Sentinel repo and install Node packages.
 ```
 git clone https://github.com/geekcash/node-sentinel.git && cd node-sentinel
+
+```
+
+Install node modules
+```
 npm i
 ```
 
-### 3. Config.js
-RPC User & Password in `.geekcash/geekcash.conf`
+If you get an error like this, install this command:
+
+```
+sudo apt-get install libboost-all-dev -y
+```
+
+```
+> zmq@2.15.3 install /root/node-sentinel/node_modules/zmq
+> node-gyp rebuild
+
+Traceback (most recent call last):
+  File "/usr/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py", line 13, in <module>
+    import gyp
+  File "/usr/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/__init__.py", line 8, in <module>
+    import gyp.input
+  File "/usr/lib/node_modules/npm/node_modules/node-gyp/gyp/pylib/gyp/input.py", line 5, in <module>
+    from compiler.ast import Const
+ImportError: No module named compiler.ast
+gyp ERR! configure error 
+gyp ERR! stack Error: `gyp` failed with exit code: 1
+gyp ERR! stack     at ChildProcess.onCpExit (/usr/lib/node_modules/npm/node_modules/node-gyp/lib/configure.js:345:16)
+gyp ERR! stack     at emitTwo (events.js:126:13)
+gyp ERR! stack     at ChildProcess.emit (events.js:214:7)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:198:12)
+gyp ERR! System Linux 4.4.0-127-generic
+gyp ERR! command "/usr/bin/node" "/usr/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /root/node-sentinel/node_modules/zmq
+gyp ERR! node -v v8.12.0
+gyp ERR! node-gyp -v v3.8.0
+gyp ERR! not ok 
+npm WARN node-sentinel@1.0.1 No description
+npm WARN node-sentinel@1.0.1 No repository field.
+
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! zmq@2.15.3 install: `node-gyp rebuild`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the zmq@2.15.3 install script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2018-09-15T07_22_16_232Z-debug.log
+```
+
+
+
+
+### 3. Create config.js
+
+```
+cp -i config_example.js config.js
+```
+
+Get RPC User & Password in `.geekcash/geekcash.conf`
+
+```
+cd ../
+cat .geekcash/geekcash.conf
+```
+```
+rpcuser=root
+rpcpassword=pass
+rpcport=6888
+listen=1
+server=1
+daemon=1
+logtimestamps=1
+maxconnections=64
+txindex=1
+masternode=1
+externalip=x.x.x.x:6889
+masternodeprivkey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+Edit config.js
+```
+cd node-sentinel
+nano config.js
+```
 
 ```js
 
@@ -90,7 +173,7 @@ coins: [
 ```
 
 ### 4. Allow RPC IP
-If you run sentinel for multiple masternodes, you need to configure rpcallowip to allow sentinel to connect to this MN.
+If you run sentinel for multiple masternodes, you need to configure rpcallowip to allow sentinel to connect to this MN and restart GeekCash Daemon.
 ```
 rpcuser=root
 rpcpassword=pass
@@ -124,7 +207,10 @@ masternode=1
 externalip=8.8.8.8:6889
 masternodeprivkey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
-
+```
+geekcash-cli stop
+geekcashd
+```
 
 ### 5. Run app
 ```
